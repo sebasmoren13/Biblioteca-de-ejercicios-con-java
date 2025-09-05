@@ -2,64 +2,82 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(imc());
+
+        menu();
+
 
     }
 
    public static void menu() {
+       Scanner menu = new Scanner(System.in);
+       int op;
 
-        int op = 3;
-          switch (op){
-              case 1:
-                  System.out.println("Ejercicio dado de 2 caras");
-                  break;
-              case 2:
-                  System.out.println("Ejercicio dado de 3 caras");
-                  break;
-              case 3:
-                  System.out.println("Ejercicio peso corporal");
-                  break;
-              case 4:
-                  System.out.println("");
-                  break;
-              case 5:
-                  System.out.println("");
-                  break;
-              case 6:
-                  System.out.println("Salir de los ejercicios");
-                  break;
+       System.out.println("Escribir el ejercicio que quieres ver");
+       System.out.println("1. Ejercicio dado de 2 caras");
+       System.out.println("2. Ejercicio dado de 3 caras");
+       System.out.println("3. Ejercicio peso corporal");
 
-                  default:
+       op = menu.nextInt();
 
-    }
+       switch (op) {
+           case 1:
+               System.out.println("Ejercicio dado de 2 caras");
+
+               dados2();
+
+               break;
+           case 2:
+               System.out.println("Ejercicio dado de 3 caras");
+
+               dados3();
+
+               break;
+           case 3:
+               System.out.println("Ejercicio peso corporal");
+
+               System.out.println(imc());
+
+               break;
+           case 4:
+               System.out.println("");
+               break;
+           case 5:
+               System.out.println("");
+               break;
+           case 6:
+               System.out.println("Salir de los ejercicios");
+               break;
+
+           default:
+
+       }
+   }
 
    public static void dados2() {
 
-                Random aleatorio = new Random();
-        int a,b,sumaD1=0,sumaD2=0;
-            for (int i=1;i<=20; i++) {
-                System.out.println("Numero aleatorio dado 1");
-                a =aleatorio.nextInt((6 - 1) + 1) + 1;
-                sumaD1+=a;
+       Random aleatorio = new Random();
+       int a, b, sumaD1 = 0, sumaD2 = 0;
+       for (int i = 1; i <= 20; i++) {
+           System.out.println("Numero aleatorio dado 1");
+           a = aleatorio.nextInt((6 - 1) + 1) + 1;
+           sumaD1 += a;
 
-                System.out.println("Numero aleatorio dado 2");
-                b = aleatorio.nextInt((6 - 1) + 1) +1;
-                sumaD2+=b;
-            }
+           System.out.println("Numero aleatorio dado 2");
+           b = aleatorio.nextInt((6 - 1) + 1) + 1;
+           sumaD2 += b;
+       }
 
-            if(sumaD1<sumaD2){
-                System.out.println("El dado 1 gana="+sumaD1);
+       if (sumaD1 < sumaD2) {
+           System.out.println("El dado 1 gana=" + sumaD1);
 
-            }
-            else if(sumaD1>sumaD2){
-                System.out.println("El dado 2 gana="+sumaD2);
-        }
-                else if(sumaD1==sumaD2){
-                    System.out.println("EMPATE="+sumaD2);
-            }
+       } else if (sumaD1 > sumaD2) {
+           System.out.println("El dado 2 gana=" + sumaD2);
+       } else if (sumaD1 == sumaD2) {
+           System.out.println("EMPATE=" + sumaD2);
+       }
 
 
-
+   }
 
 
      public static void dados3() {

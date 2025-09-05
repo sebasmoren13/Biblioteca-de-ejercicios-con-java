@@ -2,18 +2,40 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        menu();
+        System.out.println(imc());
 
     }
 
-    public static void menu() {
+   public static void menu() {
 
+        int op = 3;
+          switch (op){
+              case 1:
+                  System.out.println("Ejercicio dado de 2 caras");
+                  break;
+              case 2:
+                  System.out.println("Ejercicio dado de 3 caras");
+                  break;
+              case 3:
+                  System.out.println("Ejercicio peso corporal");
+                  break;
+              case 4:
+                  System.out.println("");
+                  break;
+              case 5:
+                  System.out.println("");
+                  break;
+              case 6:
+                  System.out.println("Salir de los ejercicios");
+                  break;
+
+                  default:
 
     }
 
-    public static void dados2() {
+   public static void dados2() {
 
-               /* Random aleatorio = new Random();
+                Random aleatorio = new Random();
         int a,b,sumaD1=0,sumaD2=0;
             for (int i=1;i<=20; i++) {
                 System.out.println("Numero aleatorio dado 1");
@@ -34,13 +56,13 @@ public class Main {
         }
                 else if(sumaD1==sumaD2){
                     System.out.println("EMPATE="+sumaD2);
-            }*/
+            }
 
 
 
-    }
 
-     /* public static void dados3() {
+
+     public static void dados3() {
 
         Random aleatorio = new Random();
         int a,b,c,sumaD1=0,sumaD2=0,sumaD3=0;
@@ -114,26 +136,57 @@ public class Main {
 
 
 
-    }*/
-
-    public static String masacorporal() {
-
-
-
-
-
-
-
-
-
-        return null;
     }
 
+    public static String imc() {
 
+        Scanner teclado = new Scanner(System.in);
+        double n1, n2, operacion;
+        String resultado = "";
 
+        System.out.println("Digite su peso corporal");
+        n1 = teclado.nextDouble();
+        System.out.println("Digite su altura corporal");
+        n2 = teclado.nextDouble();
+        operacion = (n1 / (n2 * n2));
 
+        System.out.println("Su peso es: " + operacion);
 
+        if (operacion < 18.5) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene bajo peso ";
 
+        } else if (operacion >= 18.5 && operacion < 24.9) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene peso normal ";
+
+        } else if (operacion > 25 && operacion < 26.9) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene sobre peso de grado 1 ";
+
+        } else if (operacion > 27 && operacion < 29.9) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene sobre peso de grado 2 ";
+
+        } else if (operacion > 30 && operacion < 34.9) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene obesidad de peso tipo 1 ";
+
+        } else if (operacion > 35 && operacion < 39.9) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene obesidad de peso tipo 2 ";
+
+        } else if (operacion > 40 && operacion < 49.9) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene obesidad de peso tipo 3 (Morbida) ";
+
+        } else if (operacion > 50) {
+            resultado = "SU IMC ES= " + operacion + "\nUsted tiene obesidad de peso tipo 4 (Extrema) ";
+
+        }
+
+        return resultado + operacion;
 
     }
 }
+
+
+
+
+
+
+
+

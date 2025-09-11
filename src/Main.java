@@ -1,3 +1,4 @@
+// Sebastian Andres Prieto Moreno
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
@@ -48,9 +49,9 @@ public class Main {
 
                 break;
             case 5:
-                System.out.println("Ejercicio final de clase");
+                System.out.println("Ejercicio final de clase ejercicio 1");
 
-                prueba();
+                pruebaejericicio1();
 
                 break;
             case 6:
@@ -103,13 +104,11 @@ public class Main {
             fin();
         } else if (confirmacion != 1 && confirmacion != 2) {
             System.out.println("Los valores no coinciden, volver a escribir ");
-            prueba();
+            fin();
         }
 
 
     }
-
-
     public static void dados3() {
         Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
@@ -188,7 +187,7 @@ public class Main {
             fin();
         } else if (confirmacion != 1 && confirmacion != 2) {
             System.out.println("Los valores no coinciden, volver a escribir ");
-            prueba();
+            fin();
         }
 
 
@@ -252,7 +251,7 @@ public class Main {
             fin();
         } else if (confirmacion != 1 && confirmacion != 2) {
             System.out.println("Los valores no coinciden, volver a escribir ");
-            prueba();
+            fin();
 
 
         }
@@ -756,7 +755,7 @@ public class Main {
                     fin();
                 } else if (confirmacion != 1 && confirmacion != 2) {
                     System.out.println("Los valores no coinciden, volver a escribir ");
-                    prueba();
+                    fin();
 
 
                 }
@@ -766,36 +765,102 @@ public class Main {
 
     }
 
-    public static void prueba(){
-        Scanner prueba= new Scanner(System.in);
+    public static void pruebaejericicio1() {
+        Scanner prueba1 = new Scanner(System.in);
+        Random aleatorio = new Random();
         double confirmacion;
+        int diferencia;
+        int puntosJugador1 = 0;
+        int puntosJugador2 = 0;
+        int dado1,dado2;
+        int ronda = 1;
+        boolean juegoTerminado = false;
+
+        while (!juegoTerminado && ronda <= 100) {
+            System.out.println("\n--- Ronda " + ronda + " ---");
 
 
-        System.out.println("¿Ahora que quieres hacer ?");
-        System.out.println("1. Volver al menu");
-        System.out.println("2. Salir del codigo");
-        System.out.println("Escribe una de las dos opciones");
+            dado1 = aleatorio.nextInt((6 - 1) + 1) + 1;
+            System.out.println("Jugador 1 sacó: " + dado1);
 
-        confirmacion = prueba.nextDouble();
+            if (dado1 == 1) {
+                if (puntosJugador1 > 0) {
+                    puntosJugador1 -= 1;
+                }
+                System.out.println("Jugador 1 pierde 1 punto. Puntos totales: " + puntosJugador1);
+            } else if (dado1 == 6) {
+                puntosJugador1 += 6;
+                System.out.println("Jugador 1 suma 6 puntos. Puntos totales: " + puntosJugador1);
+            } else {
+                puntosJugador1 += dado1;
+                System.out.println("Jugador 1 suma " + dado1 + " puntos. Puntos totales: " + puntosJugador1);
+            }
 
-        if (confirmacion ==1){
-            System.out.println("Volver al menu principal");
-            menu();
+
+            dado2 = aleatorio.nextInt((6 - 1) + 1) + 1;
+            System.out.println("Jugador 2 sacó: " + dado2);
+
+            if (dado2 == 1) {
+                if (puntosJugador2 > 0) {
+                    puntosJugador2 -= 1;
+                }
+                System.out.println("Jugador 2 pierde 1 punto. Puntos totales: " + puntosJugador2);
+            } else if (dado2 == 6) {
+                puntosJugador2 += 6;
+                System.out.println("Jugador 2 suma 6 puntos. Puntos totales: " + puntosJugador2);
+            } else {
+                puntosJugador2 += dado2;
+                System.out.println("Jugador 2 suma " + dado2 + " puntos. Puntos totales: " + puntosJugador2);
+            }
+
+
+            if (puntosJugador1 >= puntosJugador2) {
+                diferencia = puntosJugador1 - puntosJugador2;
+            } else {
+                diferencia = puntosJugador2 - puntosJugador1;
+            }
+
+            if (diferencia >= 3) {
+                juegoTerminado = true;
+                System.out.println("\n¡El juego ha terminado!");
+                if (puntosJugador1 > puntosJugador2) {
+                    System.out.println("Jugador 1 gana con " + puntosJugador1 + " puntos.");
+                } else {
+                    System.out.println("Jugador 2 gana con " + puntosJugador2 + " puntos.");
+                }
+
+                System.out.println("\nSuma de lanzamientos:");
+                System.out.println("Jugador 1: " + puntosJugador1);
+                System.out.println("Jugador 2: " + puntosJugador2);
+            }
+
+            ronda++;
+
+
         }
-        else if (confirmacion ==2){
-            System.out.println("Salir del codigo");
-            fin();
+
+
+
+            System.out.println("\n¿Ahora que quieres hacer ?");
+            System.out.println("1. Volver al menu");
+            System.out.println("2. Salir del codigo");
+            System.out.println("Escribe una de las dos opciones");
+
+            confirmacion = prueba1.nextInt();
+
+            if (confirmacion == 1) {
+                System.out.println("Volver al menu principal");
+                menu();
+            } else if (confirmacion == 2) {
+                System.out.println("Salir del codigo");
+                fin();
+            } else if (confirmacion != 1 && confirmacion != 2) {
+                System.out.println("Los valores no coinciden, salir del codigo ");
+                fin();
+            }
+
+
         }
-
-        else if (confirmacion !=1 && confirmacion !=2){
-            System.out.println("Los valores no coinciden, volver a escribir ");
-            prueba();
-        }
-
-
-
-
-    }
 
     public static void fin() {
 
@@ -803,6 +868,11 @@ public class Main {
     }
 
 }
+
+
+
+
+
 
 
 
